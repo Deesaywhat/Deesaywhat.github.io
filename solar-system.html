@@ -7,7 +7,6 @@
 </head>
 <body>
 <script>
-  /* Sun colour-cycle component */
   AFRAME.registerComponent('sun-color-cycle', {
     schema: { speed: { default: 0.4 } },
     init: function () {
@@ -33,7 +32,6 @@
     }
   });
 
-  /* Orbit component — moves entity in circle around Y axis */
   AFRAME.registerComponent('orbit', {
     schema: {
       radius: { default: 5 },
@@ -54,10 +52,8 @@
 
 <a-scene background="color: #000005">
 
-  <!-- STARFIELD -->
   <a-sky color="#000005" radius="500"></a-sky>
 
-  <!-- LIGHTS -->
   <a-light type="ambient" color="#111" intensity="0.5"></a-light>
   <a-light type="point" position="0 0 0" color="#FFF8E1" intensity="3" distance="100" decay="1"></a-light>
 
@@ -67,8 +63,6 @@
     sun-color-cycle="speed: 0.4"
     animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: linear">
   </a-sphere>
-
-  <!-- Sun glow halo -->
   <a-sphere radius="2.8" position="0 0 0"
     material="color: #FFE066; transparent: true; opacity: 0.15; side: back">
   </a-sphere>
@@ -115,7 +109,7 @@
   <a-torus radius="10.5" tube="0.02" segments-tubular="120" material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
   <a-torus radius="14"   tube="0.02" segments-tubular="150" material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
 
-  <!-- CAMERA + WASD CONTROLS -->
+  <!-- CAMERA + WASD -->
   <a-entity id="rig" position="0 5 22">
     <a-camera look-controls wasd-controls="acceleration: 10; fly: true" fov="75">
       <a-cursor color="#fff" opacity="0.6"></a-cursor>
