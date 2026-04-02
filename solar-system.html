@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Task 2 - Solar System</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
+<body>
+<script>
+  /* Sun colour-cycle component */
+  AFRAME.registerComponent('sun-color-cycle', {
+    schema: { speed: { default: 0.4 } },
+    init: function () {
+      this.t = 0;
+      this.colors = [
+        new THREE.Color(1.0, 0.95, 0.3),
+        new THREE.Color(1.0, 0.6,  0.1),
+        new THREE.Color(1.0, 0.3,  0.05),
+        new THREE.Color(1.0, 0.85, 0.0),
+      ];
+    },
+    tick: function (time, delta) {
+      this.t += (delta / 1000) * this.data.speed;
+      var idx  = Math.floor(this.t) % this.colors.length;
+      var next = (idx + 1) % this.colors.length;
+      var frac = this.t - Math.floor(this.t);
+      var col  = new THREE.Color().lerpColors(this.colors[idx], this.colors[next], frac);
+      var mesh = this.el.getObject3D('mesh');
+      if (mesh && mesh.material) {
+        mesh.material.color.set(col);
+        mesh.material.emissive.set(col);
+      }
+    }
+  });
+
+  /* Orbit component — moves entity in circle around Y axis */
+  AFRAME.registerComponent('orbit', {
+    schema: {
+      radius: { default: 5 },
+      speed:  { default: 1 },
+      offset: { default: 0 }
+    },
+    init: function () { this.angle = this.data.offset; },
+    tick: function (time, delta) {
+      this.angle += (delta / 1000) * this.data.speed;
+      this.el.setAttribute('position', {
+        x: Math.cos(this.angle) * this.data.radius,
+        y: 0,
+        z: Math.sin(this.angle) * this.data.radius
+      });
+    }
+  });
+</script>
+
+<a-scene background="color: #000005">
+
+  <!-- STARFIELD -->
+  <a-sky color="#000005" radius="500"></a-sky>
+
+  <!-- LIGHTS -->
+  <a-light type="ambient" color="#111" intensity="0.5"></a-light>
+  <a-light type="point" position="0 0 0" color="#FFF8E1" intensity="3" distance="100" decay="1"></a-light>
+
+  <!-- SUN -->
+  <a-sphere id="sun" radius="2.5" position="0 0 0"
+    material="shader: standard; color: #FFC728; emissive: #FFC728; emissiveIntensity: 1.5; roughness: 0.8; metalness: 0"
+    sun-color-cycle="speed: 0.4"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: linear">
+  </a-sphere>
+
+  <!-- Sun glow halo -->
+  <a-sphere radius="2.8" position="0 0 0"
+    material="color: #FFE066; transparent: true; opacity: 0.15; side: back">
+  </a-sphere>
+
+  <!-- MERCURY -->
+  <a-entity orbit="radius: 5; speed: 1.6; offset: 0.5">
+    <a-sphere radius="0.25"
+      material="color: #A0A0A0; roughness: 0.95; metalness: 0.1"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+    </a-sphere>
+    <a-text value="Mercury" position="0 0.6 0" color="#ccc" width="3" align="center"></a-text>
+  </a-entity>
+
+  <!-- VENUS -->
+  <a-entity orbit="radius: 7.5; speed: 1.1; offset: 1.2">
+    <a-sphere radius="0.55"
+      material="color: #E8C97A; roughness: 1; metalness: 0"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 14000; easing: linear">
+    </a-sphere>
+    <a-text value="Venus" position="0 0.8 0" color="#E8C97A" width="3" align="center"></a-text>
+  </a-entity>
+
+  <!-- EARTH -->
+  <a-entity orbit="radius: 10.5; speed: 0.75; offset: 2.4">
+    <a-sphere radius="0.6"
+      material="color: #1a6bcc; roughness: 0.8; metalness: 0.05"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear">
+    </a-sphere>
+    <a-text value="Earth" position="0 0.85 0" color="#4fc3f7" width="3" align="center"></a-text>
+  </a-entity>
+
+  <!-- MARS -->
+  <a-entity orbit="radius: 14; speed: 0.55; offset: 3.9">
+    <a-sphere radius="0.4"
+      material="color: #C1440E; roughness: 0.9; metalness: 0"
+      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+    </a-sphere>
+    <a-text value="Mars" position="0 0.65 0" color="#EF6C42" width="3" align="center"></a-text>
+  </a-entity>
+
+  <!-- ORBIT RINGS -->
+  <a-torus radius="5"    tube="0.02" segments-tubular="80"  material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
+  <a-torus radius="7.5"  tube="0.02" segments-tubular="100" material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
+  <a-torus radius="10.5" tube="0.02" segments-tubular="120" material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
+  <a-torus radius="14"   tube="0.02" segments-tubular="150" material="color: #fff; transparent: true; opacity: 0.12" rotation="90 0 0"></a-torus>
+
+  <!-- CAMERA + WASD CONTROLS -->
+  <a-entity id="rig" position="0 5 22">
+    <a-camera look-controls wasd-controls="acceleration: 10; fly: true" fov="75">
+      <a-cursor color="#fff" opacity="0.6"></a-cursor>
+    </a-camera>
+  </a-entity>
+
+</a-scene>
+</body>
+</html>

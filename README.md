@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# IEEE CCWC - 2026
 ##
 ## UNLV University of Nevada, Las Vegas
@@ -12,3 +13,6 @@
 
 
 
+=======
+# Deesaywhat.github.io
+>>>>>>> bbb7ac205d6aaacda364d5a00fe1e6aba4382f38

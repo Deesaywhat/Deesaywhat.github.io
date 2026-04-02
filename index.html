@@ -1,128 +1,55 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Aspects of AR/VR</title>
-    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-  </head>
-  <body>
-    <h1>Code we work with</h1>
-    
-    <h1>Chapter 1: Introduction</h1>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CMPT 461 - Assignment 7</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 24px; background: #0a0a1a; color: #eee; }
+    h1 { color: #FFC728; margin-bottom: 4px; }
+    h2 { color: #aaa; border-bottom: 1px solid #333; padding-bottom: 6px; margin-top: 32px; }
+    a { color: #4fc3f7; text-decoration: none; display: block; margin: 8px 0; font-size: 15px; }
+    a:hover { color: #fff; text-decoration: underline; }
+    .task2 { background: #1a1a2e; border: 2px solid #FFC728; border-radius: 10px; padding: 18px 24px; margin: 24px 0; }
+    .task2 a { color: #FFC728; font-size: 18px; font-weight: bold; }
+    .badge { display: inline-block; background: #FFC728; color: #000; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+    ol { line-height: 2.2; padding-left: 20px; }
+    p.sub { color: #888; font-size: 13px; margin: 0 0 8px; }
+  </style>
+</head>
+<body>
+  <h1>CMPT 461 - Immersive Computing</h1>
+  <p style="color:#888; margin-top:4px;">Assignment 7 | Deesaywhat</p>
 
-    <ol>
-        <li><a href="./p01/forest.html">Forest </a></li>
-        <li><a href="./p01/not-index.html">Blue sky </a></li>
-        <li><a href="./p01/simple-sky.html">Nebula </a></li>
-       
-    </ol>
+  <div class="task2">
+    <p style="margin:0 0 6px; color:#FFC728; font-weight:bold; font-size:13px;">TASK 2 - Solar System</p>
+    <a href="./solar-system.html">Solar System - Sun + 4 Planets, Orbiting, Colour-Changing Sun, WASD Camera, VR Ready</a>
+  </div>
 
-    <h1>Chapter 2: Shapes</h1>
+  <h2>Task 1 - Eight Exercises <span class="badge">16 marks</span></h2>
 
-    <ol>
-        <li><a href="./p02/a-box.html">A box </a></li>
-        <li><a href="./p02/a-box-entity.html">A box as an entity: W-A-S-D </a></li>
-        <li><a href="./p02/a-circle.html">A segmented circle</a></li>
-        <li><a href="./p02/over-Azores.html">Over the Azores</a></li>
-        <li><a href="./p02/a-box-entity.html">A box as an entity </a></li>
-        <li><a href="./p02/a-sphere.html">A sphere brick texture</a></li>
-        <li><a href="./p02/a-sphere-mars.html">A subsphere of mars</a></li>
-       
-    </ol>
+  <h2>Chapter 1: Introduction</h2>
+  <ol>
+    <li><a href="./p01/forest.html">Forest <span style="color:#888;font-size:13px;">- a-sky with forest image + a-text</span></a></li>
+    <li><a href="./p01/not-index.html">Blue Sky <span style="color:#888;font-size:13px;">- simple blue a-sky with hello text</span></a></li>
+  </ol>
 
-    <h1>Chapter 3: Boolean operations and shapes</h1>
+  <h2>Chapter 2: Shapes</h2>
+  <ol>
+    <li><a href="./p02/a-box.html">A Box <span style="color:#888;font-size:13px;">- basic green rotating box</span></a></li>
+    <li><a href="./p02/over-Azores.html">Over the Azores <span style="color:#888;font-size:13px;">- 360 panorama sky with shapes</span></a></li>
+  </ol>
 
-    <ol>
-        <li><a href="./p03/a-cube-containing-sphere.html">A sphere in a cube</a></li>
-        <li><a href="./p03/a-cube-containing-cube.html">A cube in a cube</a></li>
-        <li><a href="./p03/2-planes-intersecting.html">Intersecting plane</a></li>
-        <li><a href="./p03/3-planes-intersecting.html">Three planes intersecting</a></li>   
-        <li><a href="./p03/4-objects-colors-classic.html">A-frame logo</a></li>
-        <li><a href="./p03/multiply-example.html">Combining objects by multiplying colors</a></li>
-        <li><a href="./p03/sphere-and-plane-intersection-1.html">A sphere and plane 1</a></li>       
-        <li><a href="./p03/sphere-and-plane-intersection-2.html">A sphere and plane 2</a></li>
-        <li><a href="./p03/sphere-and-plane-intersection-3.html">A sphere and plane 3</a></li>
-    </ol>
+  <h2>Chapter 3: Boolean Operations and Shapes</h2>
+  <ol>
+    <li><a href="./p03/a-cube-containing-sphere.html">Sphere in a Cube <span style="color:#888;font-size:13px;">- additive blending</span></a></li>
+    <li><a href="./p03/sphere-and-plane-intersection-1.html">Sphere and Plane <span style="color:#888;font-size:13px;">- intersection with additive blend</span></a></li>
+  </ol>
 
-    <h1>Chapter 4: Moving shapes</h1>
+  <h2>Chapter 4: Moving Shapes</h2>
+  <ol>
+    <li><a href="./p04/a-sphere-mars-rotates.html">Spinning Mars <span style="color:#888;font-size:13px;">- Mars orbiting and spinning</span></a></li>
+    <li><a href="./p04/rotation-while-spinning.html">Mars Rotating While Spinning <span style="color:#888;font-size:13px;">- dual animation</span></a></li>
+  </ol>
 
-    <ol>
-        <li><a href="./p04/a-box-1.html">Revisiting A box </a></li>
-        <li><a href="./p04/a-box-2-translation.html">A-box translation</a></li>
-        
-        <li><a href="./p04/a-box-change-colors.html">Translating colors</a></li>
-        <li><a href="./p04/a-box-3-spin-2D.html">Rotation</a></li>
-
-        <li><a href="./p04/a-box-3-spin-2D-three-animations.html">Multiple rotations </a></li>
-
-        <li><a href="./p04/a-Platonic-solids.html">Platonic solids</a></li>
-
-        <li><a href="./p04/a-box-3-spining-in-a-cube.html">Cube rotating in a sphere</a></li>
-        
-        
-        <li><a href="./p04/a-sphere-mars-rotates.html">Spinning mars</a></li>
-        <li><a href="./p04/a-sphere-mars-multi_spin.html">Multi spinning mars</a></li>
-        <li><a href="./p04/a-sphere-mars-multi_spin-2.html">Mars narrow spin</a></li> 
-        
-        <li><a href="./p04/a-sphere-mars-rotates.html">Spinning mars</a></li>
-        <li><a href="./p04/a-sphere-mars-spin-wide.html">Mars wide spin</a></li>
-        <li><a href="./p04/a-sphere-mars-spin-narrow.html">Mars narrow spin</a></li>   
-        <li><a href="./p04/rotation-while-spinning.html">Mars rotating while spinning</a></li> 
-    </ol>
-
-
-   
-    <h1>Chapter 5: Defining A-frame components</h1>
-
-    <ol>
-        <li><a href="./p05/a-box-no-visible-events.html">A box events in the Console </a></li>
-        <li><a href="./p05/a-boxs-events-test.html">Click event test</a></li>
-        <li><a href="./p05/hello-world-component.html">Hello world</a></li>
-
-        <li><a href="./p05/a-cube-rotation-as-AFRAME.html">Changing a cube's rotation</a></li>
-        <li><a href="./p05/a-Platonic-solids.html">Click Platonic solids</a></li>
-
-        
-        
-       
-    </ol> 
-
-    
-    <h1>Chapter 6: Lights, camera, action</h1>
-
-    <ol>
-   
-        <li><a href="./p06/a-box-amb-light.html">Ambient light</a></li>
-        <li><a href="./p06/a-box-directional-light.html">Directional light </a></li>
-        <li><a href="./p06/a-moving-target.html">Directional light moving target</a></li>
-        <li><a href="./p06/a-box-amb-directional-light.html">Ambient and directional light </a></li>
-        
-        <li><a href="./p06/a-box-camera.html">A camera </a></li>
-        <li><a href="./p06/a-box-camera-events.html">Events in a camera </a></li>
-        <li><a href="./p06/a-box-camera-wasd-controls.html">Camera with W-A-S-D controls </a></li>
-        <li><a href="./p06/a-move-camera-by-key-down.html">Move camera on key-down</a></li>
-        
-        <li><a href="./p06/a-earth-spin-and-orbit.html">Earth spin and orbit </a></li>
-        <li><a href="./p06/a-earth-spin-and-orbit.html">Lights, camera, rotation</a></li>
-        
-       
-    </ol> 
-
-    
-    <h1>Chapter 7: Landing on mars</h1>
-
-    <ol>
-        <li><a href="./p07/ball-drop.html">A ball dropping </a></li>
-        <li><a href="./p07/ball-drop-click.html">Click to sart ball drop </a></li>
-        
-        <li><a href="./p07/ship-1.html">A space ship </a></li>
-        <li><a href="./p07/ship-translate.html">A ship moving </a></li>
-
-        <li><a href="./p07/ship-2-Plus.html">A space ship </a></li>
-        <li><a href="./p07/ship-drop.html">A ship hard landing</a></li>
-    </ol> 
-
-
-  </body>
- 
+</body>
 </html>
